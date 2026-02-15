@@ -77,4 +77,3 @@ Appendix: Quick prompts cheat-sheet
 - **Refactor:** : "Refactor function Y to improve naming and extract validation."
 - **Docs:** : "Add a short README section describing the `PUT /todos/:id` endpoint, expected body, and status codes."
 
-If you'd like, I can also generate a template PR description, a CODE_REVIEW_TEMPLATE.md, or add a GitHub Actions workflow that enforces the rules above.
