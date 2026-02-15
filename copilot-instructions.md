@@ -10,7 +10,7 @@ This file explains how to use GitHub Copilot effectively in the `todo` project a
 - **Key files:** : `package.json`, `src/`, `tests/`, `README.md`.
 
 **How to use Copilot (developer-focused)**
-- **Prompting:** : Ask Copilot concise prompts. Include the task, language, and constraints. Example: "Add a toggleTodo function in todoLogic.ts that updates a todo's completed status, TypeScript/React, validate the todo exists before updating."
+- **Prompting:** : Ask Copilot concise prompts. Include the task, language, and constraints. Example: "Implement `updateTodo()` function to update a todo's text and completed status, TypeScript, validate input, return updated todo object."
 - **Iterative requests:** : Start with small, testable prompts (single function or test). Review generated code and re-prompt to refine edge cases.
 - **Prefer examples:** : When possible, show a one-line example or an expected output shape in your prompt.
 - **Avoid blind acceptance:** : Always read generated code. Verify logic, error handling, and security (input validation, auth, escaping).
@@ -32,8 +32,8 @@ This file explains how to use GitHub Copilot effectively in the `todo` project a
 
 **Suggested Copilot prompts (examples)**
 - "Write a Bun test for `createTodo()` that ensures title is required and trimmed."
-- "Generate Express route `GET /todos` that supports query `?completed=true|false` and paginates results, with request validation."
-- "Refactor `src/todoService.js` to extract validation into `validateTodo()` using Joi and update callers."
+- "Generate Next.js API route `GET /api/todos` that supports query `?completed=true|false` and returns filtered results with proper types."
+- "Refactor `app/lib/logic/todoLogic.ts` to extract validation into `validateTodo()` function and update callers."
 
 **Code Review Guidelines**
 - **Overview:** : Reviews ensure correctness, readability, maintainability, and safety.
@@ -75,5 +75,5 @@ Appendix: Quick prompts cheat-sheet
 - **Tests first:** : "Write tests for X behavior using Bun test."
 - **Implement:** : "Implement X so tests pass. Use Express and Joi."
 - **Refactor:** : "Refactor function Y to improve naming and extract validation."
-- **Docs:** : "Add a short README section describing the todo component architecture and state management with Zustand."
+- **Docs:** : "Add a short README section describing the todo management features, expected data types, and usage examples."
 
