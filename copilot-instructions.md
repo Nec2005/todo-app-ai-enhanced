@@ -10,7 +10,7 @@ This file explains how to use GitHub Copilot effectively in the `todo` project a
 - **Key files:** : `package.json`, `src/`, `tests/`, `README.md`.
 
 **How to use Copilot (developer-focused)**
-- **Prompting:** : Ask Copilot concise prompts. Include the task, language, and constraints. Example: "Add a toggleTodo function in todoLogic.ts that updates a todo's completed status, TypeScript/React, validate the todo exists before updating."
+- **Prompting:** : Ask Copilot concise prompts. Include the task, language, and constraints. Example: "Implement `updateTodo()` function to update a todo's text and completed status, TypeScript, validate input, return updated todo object."
 - **Iterative requests:** : Start with small, testable prompts (single function or test). Review generated code and re-prompt to refine edge cases.
 - **Prefer examples:** : When possible, show a one-line example or an expected output shape in your prompt.
 - **Avoid blind acceptance:** : Always read generated code. Verify logic, error handling, and security (input validation, auth, escaping).
@@ -31,9 +31,9 @@ This file explains how to use GitHub Copilot effectively in the `todo` project a
 - **Copilot + tests:** : Ask Copilot to produce tests for new code; run them locally and in CI.
 
 **Suggested Copilot prompts (examples)**
-- "Write a Bun test for `addTodo()` that ensures text is required and trimmed."
-- "Create a React component `TodoFilter` that filters todos by completed status using Zustand store."
-- "Refactor `app/lib/logic/todoLogic.ts` to extract validation into `validateTodoText()` and update callers."
+- "Write a Bun test for `createTodo()` that ensures title is required and trimmed."
+- "Generate Next.js API route `GET /api/todos` that supports query `?completed=true|false` and returns filtered results with proper types."
+- "Refactor `app/lib/logic/todoLogic.ts` to extract validation into `validateTodo()` function and update callers."
 
 **Code Review Guidelines**
 - **Overview:** : Reviews ensure correctness, readability, maintainability, and safety.
@@ -72,8 +72,8 @@ Merge rules
 - **One approving review at minimum:** : Unless the change is trivial and the repo's rules allow auto-merge.
 
 Appendix: Quick prompts cheat-sheet
-- **Tests first:** : "Write tests for X behavior using Bun's built-in test runner."
-- **Implement:** : "Implement X so tests pass. Use Next.js, React, and TypeScript."
+- **Tests first:** : "Write tests for X behavior using Bun's test runner (bun:test)."
+- **Implement:** : "Implement X so tests pass. Use TypeScript and appropriate validation."
 - **Refactor:** : "Refactor function Y to improve naming and extract validation."
-- **Docs:** : "Add a short README section describing the todo component architecture and state management with Zustand."
+- **Docs:** : "Add a short README section describing the todo management features, expected data types, and usage examples."
 
