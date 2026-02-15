@@ -31,9 +31,9 @@ This file explains how to use GitHub Copilot effectively in the `todo` project a
 - **Copilot + tests:** Ask Copilot to produce tests for new code; run them locally and in CI.
 
 **Suggested Copilot prompts (examples)**
-- "Write a Jest unit test for `createTodo()` that ensures title is required and trimmed."
-- "Generate Express route `GET /todos` that supports query `?completed=true|false` and paginates results, with request validation."
-- "Refactor `src/todoService.js` to extract validation into `validateTodo()` using Joi and update callers."
+- "Write a Bun test for `createTodo()` that ensures title is required and trimmed."
+- "Generate Next.js API route `GET /api/todos` that supports query `?completed=true|false` and returns filtered results with proper types."
+- "Refactor `app/lib/logic/todoLogic.ts` to extract validation into `validateTodo()` function and update callers."
 
 **Code Review Guidelines**
 - **Overview:** Reviews ensure correctness, readability, maintainability, and safety.
@@ -72,7 +72,8 @@ Merge rules
 - **One approving review at minimum:** Unless the change is trivial and the repo's rules allow auto-merge.
 
 Appendix: Quick prompts cheat-sheet
-- **Tests first:** "Write tests for X behavior using Jest and supertest."
-- **Implement:** "Implement X so tests pass. Use Express and Joi."
-- **Refactor:** "Refactor function Y to improve naming and extract validation."
-- **Docs:** "Add a short README section describing the `PUT /todos/:id` endpoint, expected body, and status codes."
+- **Tests first:** : "Write tests for X behavior using Bun test."
+- **Implement:** : "Implement X so tests pass. Use Express and Joi."
+- **Refactor:** : "Refactor function Y to improve naming and extract validation."
+- **Docs:** : "Add a short README section describing the todo management features, expected data types, and usage examples."
+
