@@ -72,8 +72,8 @@ Merge rules
 - **One approving review at minimum:** : Unless the change is trivial and the repo's rules allow auto-merge.
 
 Appendix: Quick prompts cheat-sheet
-- **Tests first:** : "Write tests for X behavior using Bun's test runner (bun:test)."
-- **Implement:** : "Implement X so tests pass. Use TypeScript and appropriate validation."
+- **Tests first:** : "Write tests for X behavior using Bun test."
+- **Implement:** : "Implement X so tests pass. Use Express and Joi."
 - **Refactor:** : "Refactor function Y to improve naming and extract validation."
 - **Docs:** : "Add a short README section describing the todo management features, expected data types, and usage examples."
 
