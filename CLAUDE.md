@@ -32,3 +32,25 @@ The store is provided to components via React Context (`StoreProvider.tsx`), acc
 Tests mirror the `app/lib/` structure under `tests/`:
 - `tests/logic/` - Unit tests for pure logic functions
 - `tests/store/` - Integration tests for Zustand store behavior
+
+## Pull Requests and Code Review
+
+### PR Requirements
+- PRs must pass CI (lint + tests) before merge
+- At least one approving review required
+- Keep PRs focused: one feature or fix per PR
+- Include a short description explaining the change and testing steps
+
+### Code Review Checklist
+- **Tests:** New behavior has test coverage, all tests pass
+- **Correctness:** Logic handles edge cases and error states
+- **Security:** Inputs validated, no secrets or unsafe operations
+- **Readability:** Clear naming, easy to understand
+- **Style:** Follows project lint rules, no unused imports/variables
+
+### Review Process
+1. Author creates focused PR with description
+2. CI runs (lint, tests, type checks)
+3. Reviewer checks diffs, runs tests locally if needed
+4. Author addresses comments with edits or replies
+5. After approval and green CI, merge per repo rules
