@@ -49,3 +49,17 @@ export function toggleTodo(todos: Todo[], id: string): Todo[] {
     todo.id === id ? { ...todo, completed: !todo.completed } : todo
   );
 }
+
+/**
+ * Filters todos by search term (case-insensitive match on text)
+ * @param todos - Current list of todos
+ * @param searchTerm - Term to search for
+ * @returns Filtered array of todos matching the search term
+ */
+export function filterTodos(todos: Todo[], searchTerm: string): Todo[] {
+  if (!searchTerm.trim()) {
+    return todos;
+  }
+  const lowerSearch = searchTerm.toLowerCase();
+  return todos.filter((todo) => todo.text.toLowerCase().includes(lowerSearch));
+}

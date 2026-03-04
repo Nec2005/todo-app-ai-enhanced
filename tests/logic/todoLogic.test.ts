@@ -1,5 +1,5 @@
 import { describe, test, expect } from "bun:test";
-import { addTodo, deleteTodo, toggleTodo, generateId } from "@/app/lib/logic/todoLogic";
+import { addTodo, deleteTodo, toggleTodo, generateId, filterTodos } from "@/app/lib/logic/todoLogic";
 import type { Todo } from "@/app/lib/types/todo";
 
 describe("todoLogic", () => {
@@ -148,6 +148,53 @@ describe("todoLogic", () => {
 
       expect(todos[0].completed).toBe(false);
       expect(newTodos[0].completed).toBe(true);
+    });
+  });
+
+  describe("filterTodos", () => {
+    const todos: Todo[] = [
+      { id: "1", text: "Buy milk", completed: false, createdAt: Date.now() },
+      { id: "2", text: "Walk the dog", completed: false, createdAt: Date.now() },
+      { id: "3", text: "Buy bread", completed: true, createdAt: Date.now() },
+    ];
+
+    test("returns all todos when search term is empty", () => {
+      const result = filterTodos(todos, "");
+      expect(result).toHaveLength(3);
+    });
+
+    test("returns all todos when search term is whitespace only", () => {
+      const result = filterTodos(todos, "   ");
+      expect(result).toHaveLength(3);
+    });
+
+    test("filters todos by matching text", () => {
+      const result = filterTodos(todos, "buy");
+      expect(result).toHaveLength(2);
+      expect(result[0].text).toBe("Buy milk");
+      expect(result[1].text).toBe("Buy bread");
+    });
+
+    test("is case-insensitive", () => {
+      const result = filterTodos(todos, "BUY");
+      expect(result).toHaveLength(2);
+    });
+
+    test("returns empty array when no todos match", () => {
+      const result = filterTodos(todos, "pizza");
+      expect(result).toHaveLength(0);
+    });
+
+    test("returns single matching todo", () => {
+      const result = filterTodos(todos, "dog");
+      expect(result).toHaveLength(1);
+      expect(result[0].text).toBe("Walk the dog");
+    });
+
+    test("does not mutate original array", () => {
+      const original = [...todos];
+      filterTodos(todos, "buy");
+      expect(todos).toHaveLength(original.length);
     });
   });
 });

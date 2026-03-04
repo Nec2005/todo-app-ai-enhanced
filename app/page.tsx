@@ -1,4 +1,5 @@
 import { AddTodoForm } from "./components/AddTodoForm";
+import { SearchBar } from "./components/SearchBar";
 import { TodoList } from "./components/TodoList";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
           Todo App
         </h1>
         <AddTodoForm />
+        <SearchBar />
         <TodoList />
       </div>
     </main>

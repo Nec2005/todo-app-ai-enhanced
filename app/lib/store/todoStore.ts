@@ -4,20 +4,24 @@ import { addTodo, deleteTodo, toggleTodo } from "@/app/lib/logic/todoLogic";
 
 export interface TodoStore {
   todos: Todo[];
+  searchTerm: string;
   addTodo: (text: string) => void;
   deleteTodo: (id: string) => void;
   toggleTodo: (id: string) => void;
+  setSearchTerm: (term: string) => void;
 }
 
 export const createTodoStore = () => {
   return create<TodoStore>((set) => ({
     todos: [],
+    searchTerm: "",
     addTodo: (text: string) =>
       set((state) => ({ todos: addTodo(state.todos, text) })),
     deleteTodo: (id: string) =>
       set((state) => ({ todos: deleteTodo(state.todos, id) })),
     toggleTodo: (id: string) =>
       set((state) => ({ todos: toggleTodo(state.todos, id) })),
+    setSearchTerm: (term: string) => set({ searchTerm: term }),
   }));
 };
 
